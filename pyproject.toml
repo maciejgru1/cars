@@ -1,0 +1,49 @@
+[project]
+name = "orcar"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.112.2",
+    "jinja2>=3.1.4",
+    "python-multipart>=0.0.9",
+]
+
+[build-system]
+requires = ["setuptools", "wheel", "hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.6.3",
+]
+
+[tool.ruff]
+line-length = 88
+exclude = [".ruff_cache", ".venv", "venv", "__init__", ".git", '__pycache__', "dist"]
+target-version = "py311"
+src = ["src/app", "app/tests", "app"]
+
+[tool.ruff.lint]
+select = ["E", "F", "S", "UP", "T", "W", "I"]
+ignore = ["S608"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tests"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+
+
+[tool.ruff.lint.extend-per-file-ignores]
+"__init__.py" = ["F401"]
+"/tests/**/*.py"= ["S101", "S104"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

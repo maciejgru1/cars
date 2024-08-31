@@ -1,0 +1,37 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSaveMode": "file",
+    "ruff.lint.args": [
+      "--config=pyproject.toml"
+    ],
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticSeverityOverrides": {
+      "reportPrivateImportUsage": "none",
+      "reportInvalidTypeForm": "none"
+    },
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.ruff_cache": true,
+      "**/.pytest_cache": true,
+      "**/.mypy_cache": true
+    },
+    "python.testing.pytestArgs": [
+      "src"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestPath": "${workspaceFolder}\\venv\\Scripts\\pytest.exe",
+    "cSpell.words": [
+      "jsonable"
+    ],
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    }
+  }
